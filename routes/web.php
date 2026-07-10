@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/parametres/confidentialite', [OnboardingController::class, 'storePrivacy'])->name('privacy.update');
 
     // Demandes de connexion
+    Route::get('/demandes', [ConnectionRequestController::class, 'received'])->name('requests.received');
     Route::post('/demandes', [ConnectionRequestController::class, 'store'])->name('requests.store');
     Route::patch('/demandes/{connectionRequest}/accepter', [ConnectionRequestController::class, 'accept'])->name('requests.accept');
     Route::patch('/demandes/{connectionRequest}/refuser', [ConnectionRequestController::class, 'decline'])->name('requests.decline');

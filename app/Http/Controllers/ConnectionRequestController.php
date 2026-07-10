@@ -14,6 +14,18 @@ class ConnectionRequestController extends Controller
     {
     }
 
+    public function received()
+    {
+        $requests = auth()->user()
+            ->receivedConnectionRequests()
+            ->where('status', 'pending')
+            ->with('sender.interests')
+            ->latest()
+            ->paginate(10);
+
+        return view('connections.received', compact('requests'));
+    }
+
     public function store(StoreConnectionRequestRequest $request)
     {
         $sender = $request->user();

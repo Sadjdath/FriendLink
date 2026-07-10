@@ -12,6 +12,7 @@
         @auth
             <div class="flex items-center gap-4 text-sm">
                 <a href="{{ route('discovery.index') }}">Découverte</a>
+                <a href="{{ route('requests.received') }}">Demandes</a>
                 <a href="{{ route('connections.index') }}">Connexions</a>
                 <a href="{{ route('privacy.edit') }}">Confidentialité</a>
                 <a href="{{ route('profile.edit') }}">Profil</a>
