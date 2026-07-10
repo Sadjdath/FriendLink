@@ -1,3 +1,43 @@
+# FriendLink
+
+Plateforme de mise en relation sociale basée sur les centres d'intérêt communs, avec redirection vers WhatsApp uniquement lorsque les conditions de confidentialité définies par les deux utilisateurs sont respectées.
+
+## Stack technique
+
+- Laravel 13
+- PHP 8.3
+- MySQL
+- Blade + Tailwind CSS (CDN)
+
+## Installation
+
+Voir [GUIDE_PAS_A_PAS.md](./GUIDE_PAS_A_PAS.md) pour les instructions détaillées, ou [INSTALLATION.md](./INSTALLATION.md) pour la version condensée.
+
+Résumé rapide :
+
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+# configurer les identifiants MySQL dans .env
+php artisan storage:link
+php artisan migrate:fresh --seed
+php artisan serve
+```
+
+## Déploiement
+
+Voir [DEPLOYMENT.md](./DEPLOYMENT.md) pour le guide complet (VPS, Nginx, Supervisor, SSL).
+
+## Fonctionnalités principales
+
+- Inscription et authentification
+- Sélection de centres d'intérêt
+- Réglages de confidentialité personnalisables
+- Découverte de profils filtrée par intérêts communs
+- Demandes de connexion avec acceptation/refus
+- Déverrouillage conditionnel du contact WhatsApp
+- Blocage et signalement d'utilisateurs<<<<<<< HEAD
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -56,3 +96,6 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+=======
+# FriendLink
+>>>>>>> e23a9534e9f795c988afe1e84c5bfce1ab1e8abb
