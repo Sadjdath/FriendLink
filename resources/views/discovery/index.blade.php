@@ -3,15 +3,18 @@
 @section('title', 'Découverte')
 
 @section('content')
-<div class="flex gap-2 flex-wrap mb-6">
-    <a href="{{ route('discovery.index') }}" class="px-3 py-1.5 rounded-full border text-sm {{ request('interest') ? '' : 'bg-gray-900 text-white' }}">Tous</a>
-    @foreach ($interests as $interest)
-        <a href="{{ route('discovery.index', ['interest' => $interest->slug]) }}"
-           class="px-3 py-1.5 rounded-full border text-sm {{ request('interest') === $interest->slug ? 'bg-gray-900 text-white' : '' }}">
-            {{ $interest->name }}
-        </a>
-    @endforeach
-</div>
+<form method="GET" action="{{ route('discovery.index') }}" class="mb-6">
+    <label class="block text-sm font-medium mb-1" for="interest-filter">Filtrer par centre d'intérêt</label>
+    <select id="interest-filter" name="interest" onchange="this.form.submit()"
+            class="w-full sm:w-64 rounded-lg border-gray-300 px-3 py-2 text-sm">
+        <option value="">Tous les intérêts</option>
+        @foreach ($interests as $interest)
+            <option value="{{ $interest->slug }}" @selected(request('interest') === $interest->slug)>
+                {{ $interest->name }}
+            </option>
+        @endforeach
+    </select>
+</form>
 
 <div class="grid gap-4">
     @forelse ($profiles as $profile)

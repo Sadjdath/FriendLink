@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Interest;
 use App\Models\User;
 
 class ProfileController extends Controller
@@ -20,7 +21,10 @@ class ProfileController extends Controller
 
     public function edit()
     {
-        return view('profile.edit', ['user' => auth()->user()->load('interests', 'languages')]);
+        $user = auth()->user()->load('interests', 'languages');
+        $interests = Interest::where('is_active', true)->orderBy('category')->get()->groupBy('category');
+
+        return view('profile.edit', compact('user', 'interests'));
     }
 
     public function update(\Illuminate\Http\Request $request)
@@ -31,6 +35,8 @@ class ProfileController extends Controller
             'profession' => ['nullable', 'string', 'max:255'],
             'city' => ['nullable', 'string', 'max:255'],
             'avatar' => ['nullable', 'image', 'max:4096'],
+            'interests' => ['nullable', 'array'],
+            'interests.*' => ['integer', 'exists:interests,id'],
         ]);
 
         if ($request->hasFile('avatar')) {
@@ -38,7 +44,11 @@ class ProfileController extends Controller
             $validated['photo_moderation_status'] = 'pending';
         }
 
-        $request->user()->update($validated);
+        $request->user()->update(collect($validated)->except('interests')->toArray());
+
+        if ($request->has('interests')) {
+            $request->user()->interests()->sync($validated['interests'] ?? []);
+        }
 
         return back()->with('status', 'Profil mis à jour.');
     }

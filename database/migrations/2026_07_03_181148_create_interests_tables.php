@@ -25,6 +25,13 @@ return new class extends Migration
 
             $table->unique(['user_id', 'interest_id']);
         });
+
+        Schema::create('interests', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('icon')->nullable();
+            $table->timestamps();
+        });
     }
 
     public function down(): void
