@@ -25,6 +25,10 @@
             <input type="checkbox" name="remember"> Se souvenir de moi
         </label>
 
+        <p class="text-sm">
+            <a href="{{ route('password.request') }}" class="underline text-gray-500">Mot de passe oublié ?</a>
+        </p>
+
         <button type="submit" class="w-full bg-gray-900 text-white rounded-lg py-2.5 font-medium">
             Connexion
         </button>
