@@ -8,7 +8,7 @@
 <div class="grid gap-3">
     @forelse ($connections as $connection)
         @php $other = $connection->otherUser(auth()->user()); @endphp
-        <div class="flex items-center justify-between bg-white border border-slate-200 rounded-2xl p-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white border border-slate-200 rounded-2xl p-5">
             <div class="flex items-center gap-4">
                 <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-200 to-brand-400 shrink-0"></div>
                 <div>

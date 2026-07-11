@@ -27,22 +27,22 @@
 </head>
 <body class="bg-white text-slate-900 antialiased">
 
-    <nav class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-4 sm:px-6 py-5 flex items-center justify-between">
         <a href="/" class="flex items-center gap-2">
             <span class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-sm">F</span>
             <span class="font-bold text-lg tracking-tight">FriendLink</span>
         </a>
-        <div class="flex items-center gap-3">
-            <a href="{{ route('login') }}" class="text-sm font-medium text-slate-600 hover:text-slate-900">
+        <div class="flex items-center gap-2 sm:gap-3">
+            <a href="{{ route('login') }}" class="hidden sm:inline text-sm font-medium text-slate-600 hover:text-slate-900">
                 Se connecter
             </a>
-            <a href="{{ route('register') }}" class="bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-xl px-4 py-2.5 transition shadow-sm shadow-brand-600/20">
+            <a href="{{ route('register') }}" class="bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-semibold rounded-xl px-3.5 sm:px-4 py-2 sm:py-2.5 transition shadow-sm shadow-brand-600/20">
                 Créer un compte
             </a>
         </div>
     </nav>
 
-    <header class="max-w-4xl mx-auto px-6 pt-16 pb-20 text-center">
+    <header class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 pb-14 sm:pb-20 text-center">
         <span class="inline-block text-xs font-semibold text-brand-700 bg-brand-50 border border-brand-200 rounded-full px-3 py-1.5 mb-6">
             🔒 Confidentialité vérifiée avant chaque échange
         </span>
@@ -53,7 +53,7 @@
             FriendLink vous met en relation avec des personnes qui partagent vos centres d'intérêt.
             L'échange se poursuit sur WhatsApp, uniquement quand vous êtes prêt.
         </p>
-        <div class="flex items-center justify-center gap-3">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a href="{{ route('register') }}" class="bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl px-6 py-3 transition shadow-sm shadow-brand-600/20">
                 Créer mon compte gratuitement
             </a>
@@ -64,7 +64,7 @@
     </header>
 
     <div class="border-y border-slate-200 bg-slate-50">
-        <div class="max-w-5xl mx-auto px-6 py-6 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             <div>
                 <p class="text-2xl font-extrabold text-brand-700">100%</p>
                 <p class="text-xs text-slate-500 mt-1">Numéro jamais public</p>
@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <section id="comment-ca-marche" class="max-w-5xl mx-auto px-6 py-20">
+    <section id="comment-ca-marche" class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
         <h2 class="text-2xl font-bold text-center mb-2">Comment ça marche</h2>
         <p class="text-slate-500 text-center mb-12">Trois étapes, à votre rythme.</p>
 
@@ -108,7 +108,7 @@
     </section>
 
     <section class="bg-slate-900 text-white">
-        <div class="max-w-5xl mx-auto px-6 py-20 grid sm:grid-cols-2 gap-10 items-center">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20 grid sm:grid-cols-2 gap-10 items-center">
             <div>
                 <span class="inline-block text-xs font-semibold text-brand-300 bg-brand-900/40 rounded-full px-3 py-1.5 mb-4">
                     Notre engagement
@@ -140,7 +140,7 @@
         </div>
     </section>
 
-    <section class="max-w-3xl mx-auto px-6 py-20 text-center">
+    <section class="max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
         <h2 class="text-2xl font-bold mb-3">Prêt à faire de nouvelles connexions ?</h2>
         <p class="text-slate-500 mb-8">Gratuit, rapide, et vous gardez le contrôle à chaque étape.</p>
         <a href="{{ route('register') }}" class="inline-block bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl px-8 py-3 transition shadow-sm shadow-brand-600/20">
@@ -149,7 +149,7 @@
     </section>
 
     <footer class="border-t border-slate-200">
-        <div class="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-slate-500">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex items-center justify-between text-sm text-slate-500">
             <span>© {{ date('Y') }} FriendLink</span>
             <div class="flex gap-4">
                 <a href="{{ route('login') }}" class="hover:text-slate-900">Se connecter</a>
