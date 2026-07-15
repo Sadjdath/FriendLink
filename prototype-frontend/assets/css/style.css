@@ -1,0 +1,293 @@
+/* ==========================================================================
+   FriendLink — Prototype front-end (Bootstrap 5 + Vanilla JS)
+   ========================================================================== */
+
+:root {
+    --fl-primary: #3b82f6;
+    --fl-primary-dark: #2563eb;
+    --fl-whatsapp: #25d366;
+    --fl-whatsapp-dark: #1ebe5b;
+    --fl-bg: #f8fafc;
+    --fl-text: #1e293b;
+    --fl-muted: #64748b;
+    --fl-radius: 1rem;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--fl-bg);
+    color: var(--fl-text);
+}
+
+a { text-decoration: none; }
+
+/* ---------- Loader ---------- */
+.page-loader {
+    position: fixed;
+    inset: 0;
+    background: #ffffff;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .4s ease, visibility .4s;
+}
+.page-loader.fade-out { opacity: 0; visibility: hidden; }
+.loader-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--fl-primary);
+    display: inline-block;
+    margin: 0 4px;
+    animation: fl-bounce 1.2s infinite ease-in-out;
+}
+.loader-dot:nth-child(2) { animation-delay: .15s; background: var(--fl-whatsapp); }
+.loader-dot:nth-child(3) { animation-delay: .3s; background: var(--fl-primary-dark); }
+@keyframes fl-bounce {
+    0%, 80%, 100% { transform: scale(0.6); opacity: .5; }
+    40% { transform: scale(1); opacity: 1; }
+}
+
+/* ---------- Reveal on scroll ---------- */
+.fl-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+.fl-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- Navbar ---------- */
+.fl-navbar {
+    background: rgba(255,255,255,.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 rgba(0,0,0,.05);
+}
+.fl-brand {
+    font-weight: 800;
+    letter-spacing: -.02em;
+    color: var(--fl-text) !important;
+}
+.fl-brand .fl-brand-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px; height: 34px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--fl-primary), var(--fl-whatsapp));
+    color: #fff;
+    font-size: .9rem;
+    margin-right: .5rem;
+}
+
+/* ---------- Hero ---------- */
+.fl-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 0 4rem;
+}
+.fl-hero-blob {
+    position: absolute;
+    width: 380px; height: 380px;
+    top: -60px; left: -60px;
+    background: radial-gradient(circle, rgba(59,130,246,.18) 0%, rgba(37,211,102,.10) 100%);
+    filter: blur(50px);
+    border-radius: 50%;
+    z-index: 0;
+}
+.fl-hero-content { position: relative; z-index: 1; }
+.fl-hero h1 {
+    font-weight: 800;
+    letter-spacing: -.02em;
+    line-height: 1.15;
+}
+.fl-badge-soft {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    background: rgba(37,211,102,.12);
+    color: var(--fl-whatsapp-dark);
+    font-weight: 600;
+    font-size: .8rem;
+    padding: .45rem .9rem;
+    border-radius: 999px;
+}
+
+/* ---------- Buttons ---------- */
+.btn-fl-primary {
+    background: var(--fl-primary);
+    border-color: var(--fl-primary);
+    color: #fff;
+    font-weight: 600;
+    border-radius: .75rem;
+    transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
+}
+.btn-fl-primary:hover {
+    background: var(--fl-primary-dark);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -8px rgba(59,130,246,.5);
+}
+.btn-whatsapp {
+    background: var(--fl-whatsapp);
+    border-color: var(--fl-whatsapp);
+    color: #fff;
+    font-weight: 600;
+    border-radius: .75rem;
+    transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
+}
+.btn-whatsapp:hover {
+    background: var(--fl-whatsapp-dark);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -8px rgba(37,211,102,.5);
+}
+.btn-outline-fl {
+    border: 1.5px solid #e2e8f0;
+    color: var(--fl-text);
+    font-weight: 600;
+    border-radius: .75rem;
+    background: #fff;
+    transition: all .2s ease;
+}
+.btn-outline-fl:hover { background: #f1f5f9; color: var(--fl-text); }
+
+/* ---------- Member cards ---------- */
+.fl-member-card {
+    border: none;
+    border-radius: var(--fl-radius);
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05);
+    transition: transform .25s ease, box-shadow .25s ease;
+    overflow: hidden;
+    height: 100%;
+}
+.fl-member-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px -15px rgba(30,41,59,.2);
+}
+.fl-avatar {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--fl-primary), var(--fl-whatsapp));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+.fl-badge-loisir {
+    font-size: .72rem;
+    font-weight: 600;
+    padding: .3rem .6rem;
+    border-radius: 999px;
+}
+.bg-purple { background-color: #8b5cf6 !important; }
+
+/* ---------- Sections ---------- */
+.fl-section-title { font-weight: 800; letter-spacing: -.02em; }
+.fl-step-circle {
+    width: 52px; height: 52px;
+    border-radius: 16px;
+    background: var(--fl-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+.fl-why-card {
+    border-radius: var(--fl-radius);
+    background: #fff;
+    border: 1px solid #eef2f7;
+    padding: 1.75rem;
+    height: 100%;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.fl-why-card:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -18px rgba(30,41,59,.25); }
+.fl-why-icon {
+    width: 46px; height: 46px;
+    border-radius: 12px;
+    background: rgba(59,130,246,.1);
+    color: var(--fl-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+/* ---------- Stats counters ---------- */
+.fl-stat { font-weight: 800; font-size: 2rem; color: var(--fl-primary); }
+
+/* ---------- Forms ---------- */
+.fl-form-card {
+    border-radius: var(--fl-radius);
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05);
+    border: 1px solid #eef2f7;
+}
+.form-control, .form-select {
+    border-radius: .65rem;
+    border-color: #e2e8f0;
+    padding: .65rem .9rem;
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--fl-primary);
+    box-shadow: 0 0 0 .2rem rgba(59,130,246,.15);
+}
+
+/* ---------- Toast notification (new member) ---------- */
+.fl-toast {
+    position: fixed;
+    bottom: 20px; right: 20px;
+    background: #fff;
+    border-radius: .9rem;
+    box-shadow: 0 15px 35px -12px rgba(30,41,59,.3);
+    padding: .9rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all .35s ease;
+    z-index: 1080;
+    max-width: 320px;
+}
+.fl-toast.show { transform: translateY(0); opacity: 1; }
+
+/* ---------- Back to top ---------- */
+.fl-back-to-top {
+    position: fixed;
+    bottom: 24px; left: 24px;
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: var(--fl-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px -10px rgba(59,130,246,.6);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all .3s ease;
+    z-index: 1050;
+    border: none;
+}
+.fl-back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+
+/* ---------- Footer ---------- */
+.fl-footer { background: #0f172a; color: #cbd5e1; }
+.fl-footer a { color: #cbd5e1; }
+.fl-footer a:hover { color: #fff; }
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 767.98px) {
+    .fl-hero { padding: 3rem 0 2.5rem; text-align: center; }
+    .fl-hero-blob { display: none; }
+    .fl-stat { font-size: 1.5rem; }
+}

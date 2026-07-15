@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription — FriendLink</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <div class="page-loader">
+        <div><span class="loader-dot"></span><span class="loader-dot"></span><span class="loader-dot"></span></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg fl-navbar py-3">
+        <div class="container">
+            <a class="navbar-brand fl-brand d-flex align-items-center" href="index.html">
+                <span class="fl-brand-badge">F</span> FriendLink
+            </a>
+            <a href="login.html" class="btn btn-outline-fl btn-sm px-3">Déjà inscrit ?</a>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <!-- Message de succès (masqué par défaut) -->
+                <div id="register-success" class="fl-form-card p-5 text-center d-none">
+                    <i class="bi bi-check-circle-fill text-success display-4 mb-3"></i>
+                    <h2 class="h4 fw-bold mb-2">Votre profil est en ligne !</h2>
+                    <p class="text-muted mb-4">Il est désormais visible par les autres membres de la plateforme.</p>
+                    <a href="members.html" class="btn btn-fl-primary px-4">Découvrir les profils</a>
+                </div>
+
+                <form id="register-form" class="fl-form-card p-4 p-md-5 needs-validation" novalidate>
+                    <div class="text-center mb-4">
+                        <h1 class="h3 fw-bold">Créer votre profil</h1>
+                        <p class="text-muted small">Rejoignez la communauté en une minute.</p>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label small fw-medium">Nom *</label>
+                            <input type="text" class="form-control" required>
+                            <div class="invalid-feedback">Le nom est requis.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-medium">Prénom *</label>
+                            <input type="text" class="form-control" required>
+                            <div class="invalid-feedback">Le prénom est requis.</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label small fw-medium">Pseudo *</label>
+                            <input type="text" class="form-control" pattern="[a-zA-Z0-9_-]+" required>
+                            <div class="invalid-feedback">Pseudo requis (lettres, chiffres, - et _ uniquement).</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-medium">Adresse e-mail *</label>
+                            <input type="email" class="form-control" required>
+                            <div class="invalid-feedback">Adresse e-mail valide requise.</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label small fw-medium">Numéro WhatsApp *</label>
+                            <input type="tel" class="form-control" placeholder="+229 00 00 00 00" required>
+                            <div class="invalid-feedback">Numéro WhatsApp requis.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-medium">Sexe *</label>
+                            <select class="form-select" required>
+                                <option value="">Choisir…</option>
+                                <option>Femme</option>
+                                <option>Homme</option>
+                                <option>Autre</option>
+                            </select>
+                            <div class="invalid-feedback">Merci de préciser votre sexe.</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label small fw-medium">Date de naissance (optionnel)</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-medium">Pays *</label>
+                            <select class="form-select" required>
+                                <option value="">Choisir…</option>
+                                <option>Bénin</option>
+                                <option>Togo</option>
+                                <option>Côte d'Ivoire</option>
+                                <option>Sénégal</option>
+                                <option>Autre</option>
+                            </select>
+                            <div class="invalid-feedback">Le pays est requis.</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label small fw-medium">Ville *</label>
+                            <input type="text" class="form-control" required>
+                            <div class="invalid-feedback">La ville est requise.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-medium">Mot de passe *</label>
+                            <input type="password" class="form-control" minlength="8" required>
+                            <div class="invalid-feedback">Minimum 8 caractères.</div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label small fw-medium">Loisirs *</label>
+                            <select class="form-select" multiple size="6" required>
+                                <optgroup label="Loisirs">
+                                    <option>Football</option><option>Lecture</option><option>Cuisine</option>
+                                    <option>Voyages</option><option>Jeux vidéo</option><option>Cinéma</option>
+                                    <option>Musique</option><option>Photographie</option><option>Randonnée</option>
+                                </optgroup>
+                            </select>
+                            <div class="form-text">Maintenez Ctrl (ou Cmd) pour sélectionner plusieurs loisirs.</div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label small fw-medium">Courte description (optionnel)</label>
+                            <textarea class="form-control" rows="3" maxlength="300" placeholder="Parlez un peu de vous…"></textarea>
+                        </div>
+
+                        <div class="col-12 form-check mt-2">
+                            <input class="form-check-input" type="checkbox" id="cgu" required>
+                            <label class="form-check-label small" for="cgu">
+                                J'accepte les <a href="#">conditions d'utilisation</a> *
+                            </label>
+                            <div class="invalid-feedback">Vous devez accepter les conditions.</div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-fl-primary btn-lg w-100 mt-4">
+                        Créer mon compte
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast-container"></div>
+    <button class="fl-back-to-top"><i class="bi bi-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/mock-data.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

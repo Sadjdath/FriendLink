@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Découvrir les membres — FriendLink</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <div class="page-loader">
+        <div><span class="loader-dot"></span><span class="loader-dot"></span><span class="loader-dot"></span></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg fl-navbar sticky-top py-3">
+        <div class="container">
+            <a class="navbar-brand fl-brand d-flex align-items-center" href="index.html">
+                <span class="fl-brand-badge">F</span> FriendLink
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <i class="bi bi-list fs-2"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item"><a class="nav-link fw-medium" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium active" href="members.html">Découvrir</a></li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a href="index.html" class="btn btn-outline-fl btn-sm px-3">
+                            <i class="bi bi-box-arrow-right me-1"></i> Déconnexion
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <div class="mb-4">
+            <h1 class="fl-section-title h2">Découvrir les membres</h1>
+            <p class="text-muted" id="member-count-label">Chargement…</p>
+        </div>
+
+        <!-- Recherche + filtres -->
+        <div class="fl-form-card p-4 mb-4">
+            <div class="row g-3 align-items-end">
+                <div class="col-lg-3">
+                    <label class="form-label small fw-medium">Recherche par pseudo</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
+                        <input type="text" id="search-input" class="form-control border-start-0" placeholder="Ex : Léa_29">
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <label class="form-label small fw-medium">Pays</label>
+                    <select id="filter-pays" class="form-select">
+                        <option value="">Tous</option>
+                        <option>Bénin</option>
+                        <option>Togo</option>
+                        <option>Côte d'Ivoire</option>
+                    </select>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <label class="form-label small fw-medium">Ville</label>
+                    <select id="filter-ville" class="form-select">
+                        <option value="">Toutes</option>
+                        <option>Cotonou</option>
+                        <option>Porto-Novo</option>
+                        <option>Abomey-Calavi</option>
+                        <option>Parakou</option>
+                        <option>Lomé</option>
+                        <option>Abidjan</option>
+                    </select>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <label class="form-label small fw-medium">Sexe</label>
+                    <select id="filter-sexe" class="form-select">
+                        <option value="">Tous</option>
+                        <option>Femme</option>
+                        <option>Homme</option>
+                    </select>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <label class="form-label small fw-medium">Âge</label>
+                    <select id="filter-age" class="form-select">
+                        <option value="">Tous</option>
+                        <option value="18-25">18 - 25 ans</option>
+                        <option value="26-32">26 - 32 ans</option>
+                        <option value="33-45">33 - 45 ans</option>
+                    </select>
+                </div>
+                <div class="col-lg-1 d-grid">
+                    <button id="reset-filters" class="btn btn-outline-fl" title="Réinitialiser">
+                        <i class="bi bi-arrow-counterclockwise"></i>
+                    </button>
+                </div>
+                <div class="col-12">
+                    <label class="form-label small fw-medium">Loisir</label>
+                    <select id="filter-loisir" class="form-select">
+                        <option value="">Tous les loisirs</option>
+                        <option>Football</option><option>Lecture</option><option>Cuisine</option>
+                        <option>Voyages</option><option>Jeux vidéo</option><option>Cinéma</option>
+                        <option>Musique</option><option>Photographie</option><option>Randonnée</option>
+                        <option>Yoga</option><option>Danse</option><option>Tech</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Liste des membres -->
+        <div class="row g-4" id="full-member-list"><!-- injecté par script.js --></div>
+
+        <!-- Pagination -->
+        <nav class="mt-5" aria-label="Pagination des membres">
+            <ul class="pagination justify-content-center" id="members-pagination"></ul>
+        </nav>
+    </main>
+
+    <!-- Modale confirmation WhatsApp -->
+    <div class="modal fade" id="whatsappConfirmModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0">
+                <div class="modal-body text-center p-4">
+                    <i class="bi bi-whatsapp text-whatsapp display-5 mb-3"></i>
+                    <h5 class="fw-bold">Discuter avec <span data-target-pseudo></span> ?</h5>
+                    <p class="text-muted small">Vous allez être redirigé vers WhatsApp avec un message pré-rempli.</p>
+                    <div class="d-flex gap-2 justify-content-center mt-3">
+                        <button class="btn btn-outline-fl px-4" data-bs-dismiss="modal">Annuler</button>
+                        <button class="btn btn-whatsapp px-4" data-confirm-whatsapp>Continuer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale signalement -->
+    <div class="modal fade" id="reportModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Signaler <span data-report-target></span></h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form id="report-form">
+                    <div class="modal-body">
+                        <label class="form-label small fw-medium">Motif</label>
+                        <select class="form-select mb-3" required>
+                            <option value="">Choisir un motif</option>
+                            <option>Spam</option>
+                            <option>Faux profil</option>
+                            <option>Arnaque</option>
+                            <option>Comportement inapproprié</option>
+                            <option>Photo inappropriée</option>
+                            <option>Autre</option>
+                        </select>
+                        <label class="form-label small fw-medium">Description</label>
+                        <textarea class="form-control" rows="3" placeholder="Détails (optionnel)"></textarea>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="submit" class="btn btn-fl-primary w-100">Envoyer le signalement</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+    <button class="fl-back-to-top"><i class="bi bi-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/mock-data.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

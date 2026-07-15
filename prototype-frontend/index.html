@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FriendLink — Faites de nouvelles connaissances via WhatsApp</title>
+    <meta name="description" content="Découvrez des personnes partageant vos centres d'intérêt et commencez une conversation sur WhatsApp en un clic.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Loader -->
+    <div class="page-loader">
+        <div><span class="loader-dot"></span><span class="loader-dot"></span><span class="loader-dot"></span></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fl-navbar sticky-top py-3">
+        <div class="container">
+            <a class="navbar-brand fl-brand d-flex align-items-center" href="index.html">
+                <span class="fl-brand-badge">F</span> FriendLink
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <i class="bi bi-list fs-2"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item"><a class="nav-link fw-medium" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="members.html">Découvrir</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#about">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a href="login.html" class="btn btn-outline-fl btn-sm px-3">Connexion</a>
+                    </li>
+                    <li class="nav-item mt-2 mt-lg-0">
+                        <a href="register.html" class="btn btn-fl-primary btn-sm px-3">Rejoindre</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="fl-hero">
+        <div class="fl-hero-blob"></div>
+        <div class="container fl-hero-content">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <span class="fl-badge-soft mb-3"><i class="bi bi-shield-check"></i> 100% gratuit et sécurisé</span>
+                    <h1 class="display-5 mb-3">Faites de nouvelles connaissances grâce à WhatsApp.</h1>
+                    <p class="lead text-muted mb-4">
+                        Découvrez des personnes partageant vos centres d'intérêt et commencez une conversation en un seul clic.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="register.html" class="btn btn-fl-primary btn-lg px-4">
+                            <i class="bi bi-rocket-takeoff me-1"></i> Rejoindre maintenant
+                        </a>
+                        <a href="#latest-members-section" class="btn btn-outline-fl btn-lg px-4">
+                            Découvrir les profils
+                        </a>
+                    </div>
+                    <div class="d-flex gap-4 mt-5">
+                        <div>
+                            <p class="fl-stat mb-0" data-counter="1280">0</p>
+                            <p class="text-muted small mb-0">Membres inscrits</p>
+                        </div>
+                        <div>
+                            <p class="fl-stat mb-0" data-counter="34">0</p>
+                            <p class="text-muted small mb-0">Nouveaux aujourd'hui</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80"
+                         alt="Illustration de personnes qui échangent" class="img-fluid rounded-4 shadow fl-reveal">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 8 derniers membres inscrits -->
+    <section id="latest-members-section" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5 fl-reveal">
+                <h2 class="fl-section-title h1">Les derniers membres inscrits</h2>
+                <p class="text-muted">Ils viennent tout juste de rejoindre la communauté FriendLink.</p>
+            </div>
+            <div class="row g-4" id="latest-members"><!-- injecté par script.js --></div>
+        </div>
+    </section>
+
+    <!-- Comment ça fonctionne -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5 fl-reveal">
+                <h2 class="fl-section-title h1">Comment ça fonctionne ?</h2>
+                <p class="text-muted">Trois étapes suffisent pour commencer à discuter.</p>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-md-4 fl-reveal">
+                    <div class="fl-step-circle mx-auto mb-3">1</div>
+                    <h3 class="h5 fw-bold">Je m'inscris</h3>
+                    <p class="text-muted small">Créez votre profil en quelques secondes, sans complications.</p>
+                </div>
+                <div class="col-md-4 fl-reveal">
+                    <div class="fl-step-circle mx-auto mb-3">2</div>
+                    <h3 class="h5 fw-bold">Je découvre les profils</h3>
+                    <p class="text-muted small">Parcourez les membres selon vos centres d'intérêt.</p>
+                </div>
+                <div class="col-md-4 fl-reveal">
+                    <div class="fl-step-circle mx-auto mb-3">3</div>
+                    <h3 class="h5 fw-bold">Je discute sur WhatsApp</h3>
+                    <p class="text-muted small">Un clic suffit pour démarrer la conversation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pourquoi utiliser cette plateforme -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5 fl-reveal">
+                <h2 class="fl-section-title h1">Pourquoi utiliser FriendLink ?</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-4 fl-reveal">
+                    <div class="fl-why-card">
+                        <div class="fl-why-icon mb-3"><i class="bi bi-cash-coin"></i></div>
+                        <h3 class="h6 fw-bold">Gratuit</h3>
+                        <p class="text-muted small mb-0">Aucun frais caché, l'inscription et l'usage sont 100% gratuits.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 fl-reveal">
+                    <div class="fl-why-card">
+                        <div class="fl-why-icon mb-3"><i class="bi bi-lightning-charge"></i></div>
+                        <h3 class="h6 fw-bold">Rapide</h3>
+                        <p class="text-muted small mb-0">Inscrivez-vous en une minute et commencez à échanger tout de suite.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 fl-reveal">
+                    <div class="fl-why-card">
+                        <div class="fl-why-icon mb-3"><i class="bi bi-heart"></i></div>
+                        <h3 class="h6 fw-bold">Selon vos loisirs</h3>
+                        <p class="text-muted small mb-0">Des rencontres pertinentes basées sur vos centres d'intérêt réels.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 fl-reveal">
+                    <div class="fl-why-card">
+                        <div class="fl-why-icon mb-3"><i class="bi bi-whatsapp"></i></div>
+                        <h3 class="h6 fw-bold">Discussion directe</h3>
+                        <p class="text-muted small mb-0">Continuez la conversation là où vous êtes déjà à l'aise : WhatsApp.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 fl-reveal">
+                    <div class="fl-why-card">
+                        <div class="fl-why-icon mb-3"><i class="bi bi-shield-lock"></i></div>
+                        <h3 class="h6 fw-bold">Interface sécurisée</h3>
+                        <p class="text-muted small mb-0">Signalement et modération intégrés pour une communauté saine.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 fl-reveal">
+                    <div class="fl-why-card">
+                        <div class="fl-why-icon mb-3"><i class="bi bi-graph-up-arrow"></i></div>
+                        <h3 class="h6 fw-bold">Communauté grandissante</h3>
+                        <p class="text-muted small mb-0">De nouveaux membres rejoignent la plateforme chaque jour.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="py-5">
+        <div class="container">
+            <div class="rounded-4 p-5 text-center text-white fl-reveal" style="background: linear-gradient(135deg, var(--fl-primary), var(--fl-whatsapp));">
+                <h2 class="fw-bold mb-2">Prêt à faire de nouvelles rencontres ?</h2>
+                <p class="mb-4 opacity-75">Rejoignez une communauté grandissante dès aujourd'hui.</p>
+                <a href="register.html" class="btn btn-light btn-lg px-4 fw-bold">Créer mon compte gratuitement</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="fl-footer py-5" id="contact">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="text-white fw-bold mb-3">FriendLink</h5>
+                    <p class="small">La plateforme qui connecte les gens autour de leurs passions, via WhatsApp.</p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="text-white fw-bold mb-3">Liens utiles</h6>
+                    <ul class="list-unstyled small d-flex flex-column gap-2">
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Conditions d'utilisation</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="text-white fw-bold mb-3">Suivez-nous</h6>
+                    <div class="d-flex gap-3 fs-5">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <p class="small text-center mb-0">&copy; 2026 FriendLink. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Modale confirmation WhatsApp -->
+    <div class="modal fade" id="whatsappConfirmModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0">
+                <div class="modal-body text-center p-4">
+                    <i class="bi bi-whatsapp text-whatsapp display-5 mb-3"></i>
+                    <h5 class="fw-bold">Discuter avec <span data-target-pseudo></span> ?</h5>
+                    <p class="text-muted small">Vous allez être redirigé vers WhatsApp avec un message pré-rempli.</p>
+                    <div class="d-flex gap-2 justify-content-center mt-3">
+                        <button class="btn btn-outline-fl px-4" data-bs-dismiss="modal">Annuler</button>
+                        <button class="btn btn-whatsapp px-4" data-confirm-whatsapp>Continuer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale signalement -->
+    <div class="modal fade" id="reportModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Signaler <span data-report-target></span></h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form id="report-form">
+                    <div class="modal-body">
+                        <label class="form-label small fw-medium">Motif</label>
+                        <select class="form-select mb-3" required>
+                            <option value="">Choisir un motif</option>
+                            <option>Spam</option>
+                            <option>Faux profil</option>
+                            <option>Arnaque</option>
+                            <option>Comportement inapproprié</option>
+                            <option>Photo inappropriée</option>
+                            <option>Autre</option>
+                        </select>
+                        <label class="form-label small fw-medium">Description</label>
+                        <textarea class="form-control" rows="3" placeholder="Détails (optionnel)"></textarea>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="submit" class="btn btn-fl-primary w-100">Envoyer le signalement</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteneur toasts -->
+    <div id="toast-container"></div>
+
+    <!-- Bouton retour en haut -->
+    <button class="fl-back-to-top"><i class="bi bi-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/mock-data.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
